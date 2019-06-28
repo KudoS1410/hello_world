@@ -179,7 +179,7 @@ def game_loop():
         if n > num:
             num = n
             count += 1
-            if pauser > 20:
+            if pauser > 60:
                 pauser -= 10
             alpha = position_list[-1]
             position_list.append([alpha[0], alpha[1]])
@@ -227,10 +227,14 @@ if __name__ == '__main__':
     count = 0
     if intro('Game  1', 'Start', 'Quit!', green, (240, 32, 100)) and game_loop():
         count = 0
+        pg.time.delay(2000)
+
         message_display('Restarting......', pink, black, font_size= 100, position= (0, 0, display_width, display_length))
         time.sleep(0.5)
         while intro('Game 1', 'Start over', 'Quit!', yellow, (240, 32, 100)) and game_loop() is True:
             count = 0
+            pg.time.delay(2000)
+
             message_display('Restarting......', black, cyan, font_size= 100, position= (0, 0, display_width, display_length))
             time.sleep(0.5)
         pass
